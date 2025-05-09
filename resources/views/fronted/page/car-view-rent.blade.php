@@ -7,7 +7,6 @@
 
     <section id="new-cars" class="new-cars">
         <div class="container">
-
             <div class="section-header">
                 <p>checkout <span>the</span> rent cars</p>
                 <h2>Car Rent View</h2>
@@ -37,13 +36,19 @@
                                         </p>
                                         <h2 class="new-cars-para2"> Daily Rent : BDT: {{ $car_details->daily_rent_price }}
                                         </h2>
-                                      
                                     </div>
 
                                     <form action="{{ url('/submitRent', $car_details->id) }}" method="POST">
+                                        @if (session('success'))
+                                                    <div class="alert alert-success">{{ session('success') }}</div>
+                                                @endif
+                                                @if (session('error'))
+                                                    <div class="alert alert-danger">{{ session('error') }}</div>
+                                                @endif
                                         @csrf
                                         <div class="row">
                                             <div class="col-md-5 col-sm-6">
+                                                
                                                 <div class="new-cars-txt">
                                                     <p>Start Date:</p>
                                                     <input type="date" name="start_date" required>

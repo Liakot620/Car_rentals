@@ -78,6 +78,5 @@ Route::get('/contect', [FrontedPageController::class, 'contect']);
 Route::get('/about', [FrontedPageController::class, 'about']);
 Route::get('/rentals', [FrontedRentalController::class, 'rentals'])->name('rentals');
 Route::get('/cars-view-rent/{id}', [FrontedCarController::class, 'car_view_rent']);
-Route::post('/submitRent/{id}', [FrontedCarController::class, 'submitRent'])->middleware(['auth', 'verified','role:admin']);
 
-
+Route::post('/submitRent/{id}', [FrontedCarController::class, 'submitRent'])->middleware(['auth', 'verified','role:customer']);

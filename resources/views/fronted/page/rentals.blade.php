@@ -14,59 +14,52 @@
             <h2>Rent cars</h2>
         </div>
         
-
-                 <div class="container" style="margin-top:40px">
-                        <div class="row">
-                           <div class="col-md-offset-1 col-md-2 col-sm-12">
-                                <div class="single-model-search">
-                                    <h2>All Cars</h2>
-                                    <div class="model-select-icon">
-                                        <select class="form-control">
-
-                                              <option value="default">style</option><!-- /.option-->
-
-                                              <option value="sedan">sedan</option><!-- /.option-->
-
-                                              <option value="van">van</option><!-- /.option-->
-                                              <option value="roadster">roadster</option><!-- /.option-->
-
-                                        </select><!-- /.select-->
-                                    </div><!-- /.model-select-icon -->
-                                </div>
-                            </div>
-                            <div class="col-md-offset-1 col-md-2 col-sm-12">
-                                <div class="single-model-search">
-                                    <h2>All Brand</h2>
-                                    <div class="model-select-icon">
-                                        <select class="form-control">
-
-                                              <option value="default">make</option><!-- /.option-->
-
-                                              <option value="toyota">toyota</option><!-- /.option-->
-
-                                              <option value="holden">holden</option><!-- /.option-->
-                                              <option value="maecedes-benz">maecedes-benz.</option><!-- /.option-->
-
-                                        </select><!-- /.select-->
-                                    </div><!-- /.model-select-icon -->
-                                </div>
-                            </div>
-
-                            <div class="col-md-offset-1 col-md-2 col-sm-12">
-                                <div class="single-model-search">
-                                    <h2>Max Daily Rent Price</h2>
-                                        <input type="number" style="width:100%; height:50px" min="0">
-                                </div>
-                            </div>
-                            <div class="col-md-offset-1 col-md-2 col-sm-12">
-                                <div class="single-model-search">
-                                    <button class="btn btn-info" style="margin-top: 35px"><a href="#">Search</a></button>
-                                </div>
-                            </div>
-
-                           
+<div style="margin-top:60px">
+        <form method="GET" action="{{ url('/rentals') }}">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-2 col-sm-12">
+                    <div class="single-model-search">
+                        <h2>All Cars</h2>
+                        <div class="model-select-icon">
+                            <select class="form-control" name="name">
+                                <option value="">style</option>
+                                <option value="sedan">sedan</option>
+                                <option value="van">van</option>
+                                <option value="roadster">roadster</option>
+                            </select>
                         </div>
-                 </div>
+                    </div>
+                </div>
+                <div class="col-md-offset-1 col-md-2 col-sm-12">
+                    <div class="single-model-search">
+                        <h2>All Brand</h2>
+                        <div class="model-select-icon">
+                            <select class="form-control" name="brand">
+                                <option value="">make</option>
+                                <option value="toyota">toyota</option>
+                                <option value="holden">holden</option>
+                                <option value="maecedes-benz">maecedes-benz</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-offset-1 col-md-2 col-sm-12">
+                    <div class="single-model-search">
+                        <h2>Max Daily Rent Price</h2>
+                        <input type="number" name="daily_rent_price" class="form-control" style="width:100%; height:50px" min="0">
+                    </div>
+                </div>
+        
+                <div class="col-md-offset-1 col-md-2 col-sm-12">
+                    <div class="single-model-search">
+                        <button type="submit" class="btn btn-info" style="margin-top: 35px">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+        
 
                  <div class="featured-cars-content">
                     <div class="row">
@@ -102,4 +95,5 @@
     </div>
 
 </section>
+
 @endsection

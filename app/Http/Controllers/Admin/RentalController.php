@@ -15,11 +15,11 @@ class RentalController extends Controller
     public function index()
     {
         if (Auth::user()->role == 'admin') {
-            $rentals = Rental::with("user","car")->get();
+            $rentals = Rental::with("user","car")->orderBy('id','desc')->get();
         }
         else{
             $userId= Auth::id();
-            $rentals = Rental:: where('user_id','=',$userId)->get();
+            $rentals = Rental:: where('user_id','=',$userId)->orderBy('id','desc')->get();
         }
         return view('admin.rentals.index', compact('rentals'));
     }

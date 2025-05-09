@@ -11,7 +11,7 @@ class CarController extends Controller
 {
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::OrderBy('id','desc')->get();
         return view('admin.car.index', compact('cars'));
     }
 
