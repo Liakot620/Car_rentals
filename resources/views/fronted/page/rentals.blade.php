@@ -8,6 +8,7 @@
 
 <section id="featured-cars" class="featured-cars">
     <div class="container">
+     
         <div class="section-header">
             <p>Available <span>Cars</span> For Rent</p>
             <h2>Rent cars</h2>

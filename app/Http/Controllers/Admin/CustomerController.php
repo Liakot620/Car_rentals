@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\User;    
 use App\Models\Rental;
+use App\Models\User;    
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -30,6 +31,7 @@ class CustomerController extends Controller
             'phone' => 'required',
             'address' => 'required',
         ]);
+        $validated['password'] = Hash::make($validated['password']);
         User::create($validated);
 
         return redirect()->route('customers.index')->with('success', 'customer added successfully.');

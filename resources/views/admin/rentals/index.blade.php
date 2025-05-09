@@ -6,15 +6,31 @@
         <main class="app-main"> 
             <div class="app-content-header"> 
                 <div class="container-fluid"> 
+                    @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                            aria-label="Close"></button>
+                    </div>
+                @endif
                     <div class="row">
                         <div class="col-sm-6">
                             <h3 class="mb-0">Rentals Details</h3>
                         </div>
+
+                        @if(Auth::user()->role ==='admin')
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-end">
                                 <li class="breadcrumb-item"><a href="{{ route('rentals.create')}}"class="btn btn-md btn-success me-3">Create</a></li>
                             </ol>
                         </div>
+                        @endif
                     </div> 
                 </div> 
             </div> 

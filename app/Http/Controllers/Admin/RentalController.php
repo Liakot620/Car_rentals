@@ -55,7 +55,7 @@ class RentalController extends Controller
     {
         $rental_id = $rental->id;
         $rentals= Rental::where('id',$rental_id)->update(['status' => 'cancelled']);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'rentals cancel successfully.');;
     }
 
     public function show(Rental $rental)
@@ -77,7 +77,7 @@ class RentalController extends Controller
 
         $rental->update($validated);
 
-        return redirect()->route('rentals.index')->with('success', 'Car updated successfully.');
+        return redirect()->route('rentals.index')->with('success', 'Rentals updated successfully.');
     }
 
     public function destroy(Rental $rental)
@@ -85,6 +85,6 @@ class RentalController extends Controller
         
         $rental->delete();
 
-        return redirect()->route('rentals.index')->with('success', 'Car deleted successfully.');
+        return redirect()->route('rentals.index')->with('success', 'Rentals deleted successfully.');
     }
 }

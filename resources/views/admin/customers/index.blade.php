@@ -3,9 +3,22 @@
 
         @include("components.aside")
       
-        <main class="app-main"> <!--begin::App Content Header-->
-            <div class="app-content-header"> <!--begin::Container-->
-                <div class="container-fluid"> <!--begin::Row-->
+        <main class="app-main"> 
+            <div class="app-content-header"> 
+                <div class="container-fluid"> 
+                  @if (session('success'))
+                  <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                      {{ session('success') }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+              @endif
+              @if (session('error'))
+                  <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                      {{ session('error') }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert"
+                          aria-label="Close"></button>
+                  </div>
+              @endif
                     <div class="row">
                         <div class="col-sm-6">
                             <h3 class="mb-0">Customers Details</h3>
@@ -15,11 +28,11 @@
                                 <li class="breadcrumb-item"><a href="{{ route('customers.create')}}"class="btn btn-md btn-success me-3">Create</a></li>
                             </ol>
                         </div>
-                    </div> <!--end::Row-->
-                </div> <!--end::Container-->
-            </div> <!--end::App Content Header--> <!--begin::App Content-->
-            <div class="app-content"> <!--begin::Container-->
-                <div class="container-fluid"> <!-- Small Box (Stat card) -->
+                    </div> 
+                </div> 
+            </div> 
+            <div class="app-content"> 
+                <div class="container-fluid"> 
                     <div class="row">
                        
                         

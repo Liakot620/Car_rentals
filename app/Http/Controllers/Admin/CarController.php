@@ -79,10 +79,10 @@ class CarController extends Controller
 
     public function destroy(Car $car)
     {
-        if ($car->image) {
+        if ($car->image && Storage::disk('public')->exists($car->image)) {
             Storage::disk('public')->delete($car->image);
         }
-
+    
         $car->delete();
 
         return redirect()->route('cars.index')->with('success', 'Car deleted successfully.');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 08, 2025 at 07:51 PM
+-- Generation Time: May 09, 2025 at 12:48 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -64,6 +64,14 @@ CREATE TABLE `cars` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cars`
+--
+
+INSERT INTO `cars` (`id`, `name`, `brand`, `model`, `year`, `car_type`, `daily_rent_price`, `availability`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Corolla LE', 'Toyota', 'Corolla', 2022, 'Sedan', 2500.00, 1, 'cars/bdL0W5PRcg2ZGl9Y1JfXNLK1T3MbTOrmqkFVpC4c.png', '2025-05-09 04:45:01', '2025-05-09 04:45:01'),
+(2, 'Corolla', 'BMW', 'Corolla', 2024, 'Hatchback', 3000.00, 1, 'cars/YvJurlHbKNEqldcclDtJtPSq3Q8MNcIz3skgsn92.png', '2025-05-09 04:47:31', '2025-05-09 04:47:31');
 
 -- --------------------------------------------------------
 
@@ -184,6 +192,13 @@ CREATE TABLE `sessions` (
   `last_activity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `sessions`
+--
+
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('68A7eujVBqgFXwRBa0hqrM8G5eBDzy9KN5pIgUFR', 2, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:138.0) Gecko/20100101 Firefox/138.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidnZaQUh6NFE3TWFGajZrQzlNZGY2WXBMTzczWExiaTdXUlB4MVpjcSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jYXJzLXZpZXctcmVudC8yIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1746787673);
+
 -- --------------------------------------------------------
 
 --
@@ -203,6 +218,14 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `role`, `phone`, `address`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'dhali liakot', 'customer@gmail.com', 'customer', NULL, NULL, NULL, '$2y$12$ij62O040yfMTNq8Kdok5EOf95QMP.n8gOkKHAPVVUA68/84r.V/U6', NULL, '2025-05-09 04:41:57', '2025-05-09 04:41:57'),
+(2, 'hasan', 'admin@gmail.com', 'admin', NULL, NULL, NULL, '$2y$12$nRbyDhnXbfeYrEjkF/38renbDE87EhzDrfE7BsM1e0i5abYjhC3JS', NULL, '2025-05-09 04:42:44', '2025-05-09 04:42:44');
 
 --
 -- Indexes for dumped tables
@@ -289,7 +312,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -319,7 +342,7 @@ ALTER TABLE `rentals`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

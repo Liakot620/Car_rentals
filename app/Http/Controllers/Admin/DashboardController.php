@@ -36,6 +36,6 @@ class DashboardController extends Controller
         $data['rentals']= Rental::where('status','completed')->count();
         $data['total_amount']= Rental::where('status','completed')->sum('total_cost');
         }
-        return view('admin.dashboard.index',compact('data'));
+        return view('admin.dashboard.index',compact('data'))->with('success', 'Dashboard loaded successfully.');
     }
 }
