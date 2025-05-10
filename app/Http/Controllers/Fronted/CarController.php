@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CarBook;
 
 
 class CarController extends Controller
@@ -21,7 +23,6 @@ class CarController extends Controller
 
      public function submitRent(Request $request)
      {
-
 
           $validated = $request->validate([
                'start_date' => 'required|date',
@@ -57,13 +58,21 @@ class CarController extends Controller
           if ($overlap) {
                return redirect()->back()->with('error', 'The car is already booked for the selected dates.');
           }
-          Rental::create([
+
+          $rent = Rental::create([
                'user_id' => $user_id,
                'car_id' => $car_id,
                'start_date' => $startDate,
                'end_date' => $endDate,
                'total_cost' => $totalPrice,
           ]);
-          return redirect()->route('rentals.index')->with('success', 'Car booked successfully!'); 
+
+         
+
+           Mail::to('dhaliliakot@gmail.com')->send(new CarBook($rent));
+           Mail::to(auth::user()->email)->send(new CarBook($rent));
+
+
+          return redirect()->route('rentals.index')->with('success', 'Car booked successfully and email sent!'); 
     }
 }

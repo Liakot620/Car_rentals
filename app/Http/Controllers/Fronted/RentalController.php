@@ -24,8 +24,7 @@ class RentalController extends Controller
 
     if ($request->filled('daily_rent_price')) {
         $query->where('daily_rent_price', '<=', $request->daily_rent_price)
-        ->Where('daily_rent_price','=',$request->daily_rent_price);
-    
+        ->orWhere('daily_rent_price','=',$request->daily_rent_price);
     }
     
 
