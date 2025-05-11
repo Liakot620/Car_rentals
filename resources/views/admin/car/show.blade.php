@@ -52,10 +52,10 @@
                         </div>
                         
 
-                    </div> <!-- /.row -->
-                </div> <!--end::Container-->
-            </div> <!--end::App Content-->
-        </main> <!--end::App Main--> <!--begin::Footer-->
+                    </div> 
+                </div> 
+            </div> 
+        </main> 
         @include('components.footer')
 
     </div>

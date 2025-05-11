@@ -67,9 +67,7 @@ class CarController extends Controller
                'total_cost' => $totalPrice,
           ]);
 
-         
-
-           Mail::to('dhaliliakot@gmail.com')->send(new CarBook($rent));
+           Mail::to('admin@gmail.com')->send(new CarBook($rent));
            Mail::to(auth::user()->email)->send(new CarBook($rent));
 
 

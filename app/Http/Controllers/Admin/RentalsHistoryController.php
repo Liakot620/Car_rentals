@@ -14,7 +14,7 @@ class RentalsHistoryController extends Controller
 
             $userId = Auth::id();
         
-            $rentals = Rental:: where('user_id',$userId)->get();
+            $rentals = Rental:: where('user_id',$userId)->paginate(10);
         
         return view('admin.rentals_history.index', compact('rentals'));
     }
